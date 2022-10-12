@@ -34,5 +34,6 @@ async function shakeTheBall() {
         i++;
         await sleep(250);
     }
+    submitInput.value = "Shake again!";
     questionField.value = "";
 }
