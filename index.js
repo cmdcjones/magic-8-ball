@@ -19,8 +19,20 @@ const answers = [
     "Ask some other time",
 ];
 
-function shakeTheBall() {
+function sleep(ms) {
+    return new Promise(
+        resolve => setTimeout(resolve, ms)
+    );
+}
+
+async function shakeTheBall() {
     const resultText = document.querySelector("#resultText p");
-    resultText.textContent = "Ball has been shaken";
+    let i = 0;
+    while (i < 12) {
+        const randomSelect = Math.floor(Math.random() * answers.length);
+        resultText.textContent = answers[randomSelect];
+        i++;
+        await sleep(250);
+    }
     questionField.value = "";
 }
